@@ -122,7 +122,8 @@ export async function seed({ reset = false, log = true } = {}) {
             [hallId, sl.label, sl.start, sl.end, sl.price, s + 1]
           );
         }
-        const scenes = ["stage", "dining", "lights"] as const;
+        const allScenes = ["stage", "dining", "lights"] as const;
+        const scenes = [0, 1, 2].map((k) => allScenes[(k + i) % 3]); // vary the cover image per hall
         for (let s = 0; s < scenes.length; s++) {
           const svg = demoHallSvg(h.name, scenes[s], i + s);
           await client.query(

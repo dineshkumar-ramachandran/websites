@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ivory text-ink font-sans antialiased; font-size: 17px; line-height: 1.6; }
+  h1, h2, h3 { @apply font-display text-plum-800; line-height: 1.2; }
+  a { @apply text-plum-500 underline-offset-2; }
+  a:hover { @apply underline; }
+  :focus-visible { outline: 3px solid #C49A45; outline-offset: 2px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg px-5 py-3 text-base font-semibold no-underline transition-colors disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn:hover { text-decoration: none; }
+  .btn-primary { @apply btn bg-plum-700 text-ivory-50 hover:bg-plum-800; }
+  .btn-gold { @apply btn bg-gold-500 text-plum-900 hover:bg-gold-300; }
+  .btn-outline { @apply btn border-2 border-plum-700 bg-transparent text-plum-700 hover:bg-plum-50; }
+  .btn-ghost { @apply btn text-plum-700 hover:bg-plum-50; }
+  .btn-danger { @apply btn bg-bad text-white hover:opacity-90; }
+  .btn-sm { @apply min-h-[40px] px-3 py-2 text-sm; }
+  .card { @apply rounded-2xl border border-ivory-300 bg-ivory-50 shadow-card; }
+  .label { @apply mb-1 block text-sm font-semibold text-ink; }
+  .hint { @apply mt-1 text-sm text-ink-soft; }
+  .input { @apply block min-h-[48px] w-full rounded-lg border border-[#BCA98F] bg-white px-3 py-2 text-base text-ink placeholder:text-[#8B7D86] focus:border-plum-500 focus:outline-none focus:ring-2 focus:ring-gold-500; }
+  .input[aria-invalid="true"] { @apply border-bad ring-1 ring-bad; }
+  .field-error { @apply mt-1 text-sm font-medium text-bad; }
+  .badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+  .demo-badge { @apply badge border border-gold-500 bg-[#FFF6E0] text-gold-700; }
+  .prose-simple p { @apply mb-3; }
+  .ornament { @apply mx-auto my-3 h-px w-24 bg-gradient-to-r from-transparent via-gold-500 to-transparent; }
+}
